@@ -1,36 +1,115 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🧪 AI-Powered Test Case Generator
 
-## Getting Started
+A web app that generates **positive and negative test cases** from a natural language functionality description using the **Hugging Face Transformers API**.
 
-First, run the development server:
+Built with **Next.js 14** and **Tailwind CSS**, it helps developers and QA engineers save time by generating structured test cases and exporting them as CSV.
+
+---
+
+## ✨ Features
+
+* 🧠 Generate AI-based test cases using a natural prompt
+* ✅ Positive and ❌ Negative test case options
+* 🔢 Adjustable test case count
+* 📋 Structured output with `id`, `type`, `case`, `expected`
+* 💾 Export all test cases to CSV
+* 🖼️ Clean and responsive UI
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/your-username/test-case-generator.git
+cd test-case-generator
+```
+
+### 2. Install Dependencies
+
+```bash
+npm install
+```
+
+### 3. Add Hugging Face Token
+
+Create a `.env.local` file and add your Hugging Face API key:
+
+```
+HF_TOKEN=your_hugging_face_api_key
+```
+
+### 4. Run the Development Server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to see the app.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🧪 Test Case Format
 
-## Learn More
+The generated output is structured as:
 
-To learn more about Next.js, take a look at the following resources:
+```json
+[
+  {
+    "id": "TC0001",
+    "type": "Positive",
+    "case": "valid test case for input",
+    "expected": "Login successful"
+  },
+  {
+    "id": "TC0002",
+    "type": "Negative",
+    "case": "invalid test case for input",
+    "expected": "Display 'invalid credentials' error"
+  }
+]
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📁 Project Structure
 
-## Deploy on Vercel
+```
+/pages
+  └── api
+      └── generate   
+              └──route.js # API route for test case generation
+/app
+  └── page.js           # UI component for input/output
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📦 Built With
+
+* [Next.js 15](https://nextjs.org/)
+* [Tailwind CSS](https://tailwindcss.com/)
+* [Hugging Face Transformers](https://huggingface.co/)
+
+---
+
+## 🛠️ How It Works
+
+1. User enters a functionality description
+2. Chooses the number of test cases and types (positive/negative)
+3. App calls Hugging Face's LLM to generate cases
+4. Results are displayed in a structured format
+5. User can export test cases as a CSV file
+
+---
+
+## 📃 License
+
+MIT License. Feel free to use and modify.
+
+---
+
+## 👨‍💻 Author
+
+Made with ❤️ by LahiruZam
